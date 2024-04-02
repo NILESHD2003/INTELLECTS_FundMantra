@@ -60,3 +60,71 @@ exports.largeCap = async (req, res) => {
     }
 }
 
+exports.midCap = async (req, res) => {
+    try{
+        const data = await MutualFundsData.find({sub_category: {$regex: /Mid/ , $options: 'i'}});
+        const dataCount = await MutualFundsData.countDocuments({sub_category: {$regex: /Mid/ , $options: 'i'}});
+
+        res.status(200).json({
+            success: true,
+            dataCount: dataCount,
+            data: data
+        })
+    }catch(e){
+        console.error(e);
+
+        return res.status(500).json({
+            success: false,
+            message: "User cannot be registered. Please try again."
+        })
+    }
+}
+
+exports.smallCap = async (req, res) => {
+    try{
+        const data = await MutualFundsData.find({sub_category: {$regex: /Small/ , $options: 'i'}});
+        const dataCount = await MutualFundsData.countDocuments({sub_category: {$regex: /Small/ , $options: 'i'}});
+
+        res.status(200).json({
+            success: true,
+            dataCount: dataCount,
+            data: data
+        })
+    }catch(e){
+        console.error(e);
+
+        return res.status(500).json({
+            success: false,
+            message: "User cannot be registered. Please try again."
+        })
+    }
+}
+
+exports.detailed_amc = async (req, res) => {
+    try{
+        const {id} = req.body;
+        const data = await MutualFundsData.findOne({_id: id});
+        console.log(data);
+
+        if(!data){
+            res.status(404).json({
+                success: false,
+                message: "Unable to find Id"
+            })
+        }
+
+        res.status(200).json({
+            success: true,
+            data: data
+        })
+
+    }catch(e){
+        console.error(e);
+
+        return res.status(500).json({
+            success: false,
+            message: "Something Went Wrong"
+        })
+    }
+}
+

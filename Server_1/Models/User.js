@@ -12,7 +12,7 @@ const userSchema = new mon.Schema({
         trim: true
     },
     phoneNumber: {
-        type: Number,
+        type: String,
         required: true,
         trim: true
     },
