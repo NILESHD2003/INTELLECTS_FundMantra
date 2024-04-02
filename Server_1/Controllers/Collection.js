@@ -128,3 +128,22 @@ exports.detailed_amc = async (req, res) => {
     }
 }
 
+exports.detailed_amc_schemeName = async(req, res) => {
+    try{
+        const { schemeName } = req.body;
+        const data = await MutualFundsData.find({scheme_name: schemeName});
+        res.status(200).json({
+            success: true,
+            data: data
+        })
+
+    }catch (e) {
+        console.log(e);
+
+        res.status(500).json({
+            success: true,
+            message: 'Internal Server Error'
+        })
+    }
+}
+

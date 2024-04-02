@@ -66,7 +66,7 @@ const otpTemplate = (otp) => {
 	
 	<body>
 		<div class="container">
-		<a href="https://res.cloudinary.com/df0bb8ly2/image/upload/v1712046689/Mutual%20Funds%20Logo/Assets/1918d0276461ed980d6ec0cde30c771d-removebg-preview_aqi4jp.png"><img class="logo" src="https://i.ibb.co/7Xyj3PC/logo.png" alt="StudyNotion Logo"></a>
+		<a href="https://res.cloudinary.com/df0bb8ly2/image/upload/v1712046689/Mutual%20Funds%20Logo/Assets/1918d0276461ed980d6ec0cde30c771d-removebg-preview_aqi4jp.png"><img class="logo" src="https://res.cloudinary.com/df0bb8ly2/image/upload/v1712046689/Mutual%20Funds%20Logo/Assets/1918d0276461ed980d6ec0cde30c771d-removebg-preview_aqi4jp.png" alt="FundMantra Logo"></a>
 			<div class="message">OTP Verification Email</div>
 			<div class="body">
 				<p>Dear User,</p>
