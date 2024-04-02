@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Mutual Fund</string>
+    <string name="login">Login</string>
+    <string name="username">username</string>
+    <string name="password">password</string>
+    <string name="login1">Login</string>
+    <string name="not_yet_registered_signup_now">Not yet Registered?SignUp now</string>
+    <string name="signup">Signup</string>
+    <string name="email">email</string>
+    <string name="ph_no">Ph no</string>
+    <string name="name">name</string>
+    <string name="password_signup">password_signup</string>
+    <string name="password_signup_confirm">password_signup_confirm</string>
+    <string name="signuptext">signup</string>
+    <string name="enter_otp">Enter OTP</string>
+    <string name="verify">Verify</string>
+    <string name="welcome_to_fundmantra">Welcome to FundMantra</string>
+</resources>
