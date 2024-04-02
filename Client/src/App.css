@@ -1,7 +1,13 @@
-*
-{
+
+*{
   padding: 0;
   margin: 0;
+}
+
+
+body{
+
+  font-family: "Poppins", sans-serif;
 }
 
 
@@ -133,7 +139,7 @@ select {
   outline: none;
 }
 
-button {
+.button {
   width: 100%;
   padding: 10px;
   border: none;
@@ -143,8 +149,87 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.button:hover {
   background-color: #0056b3;
+}
+
+
+.home {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr); /* Two columns layout by default */
+  gap: 20px;
+  width: 80vw;
+  height: 70vh;
+  margin: 0 auto;
+}
+
+.home-image {
+  margin: auto;
+  position: relative;
+}
+
+.home-image img {
+  width: 100%;
+  height: auto;
+  border-radius: 20px;
+}
+
+.home-info {
+  margin: auto;
+  position: relative;
+  text-align: center;
+}
+
+.home-info-inner {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 20px;
+  border-radius: 5px;
+}
+
+.home-info h1 {
+  margin-bottom: 10px;
+  font-size: 3rem;
+  font-weight: 500;
+}
+
+.home-info p {
+  margin-bottom: 20px;
+}
+
+.home-btn {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  width: 160px;
+  padding: 10px 20px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Responsive styles for medium and small screens */
+@media screen and (max-width: 992px) {
+  .home {
+    grid-template-columns: 1fr; /* Single column layout for medium screens */
+    height: auto; /* Auto height for content to fit */
+  }
+
+  .home-info h1 {
+    font-size: 2rem; /* Adjust font size for medium screens */
+  }
+}
+
+@media screen and (max-width: 576px) {
+  .home {
+    width: 90vw; /* Adjust width for small screens */
+  }
+
+  .home-info h1 {
+    font-size: 1.5rem; /* Adjust font size for small screens */
+  }
+
+  .home-btn {
+    width: 130px; /* Adjust button width for small screens */
+  }
 }
 
 
@@ -189,14 +274,14 @@ margin-top: 10px;
 
 .form-group input,
 .form-group textarea {
-  width: 100%;
+  width: 95%;
   padding: 10px;
   border: 1px solid #ddd;
   border-radius: 5px;
   outline: none;
 }
 
-button {
+.button {
   width: 100%;
   background-color: #007bff;
   color: white;
@@ -206,6 +291,355 @@ button {
   cursor: pointer;
 }
 
-button:hover {
+.button:hover {
   background-color: #0056b3;
+}
+
+
+.otp{
+height: 100vh;
+display: flex;
+justify-content: center;
+align-items: center;
+}
+.otp-container {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  padding: 20px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  background-color: #fff;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.otp-container h2 {
+  text-align: center;
+  margin-bottom: 20px;
+}
+
+.otp-input-container {
+  display: flex;
+  justify-content: center;
+}
+
+.otp-input-container input {
+  width: 50px;
+  height: 50px;
+  margin: 0 5px;
+  text-align: center;
+  font-size: 1.5rem;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+}
+
+.otp-inputs input{
+  width: 10%;
+  height: 14%;
+  margin: 10px 4.5%;
+}
+
+.resend-button {
+  display: block;
+  margin-top: 20px;
+  width: 100%;
+  padding: 10px;
+  border: none;
+  border-radius: 5px;
+  background-color: #007bff;
+  color: #fff;
+  cursor: pointer;
+}
+
+.resend-button:hover {
+  background-color: #0056b3;
+}
+
+.grid-container {
+  width: 90vw;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 20px;
+}
+
+.card {
+  border: 1px solid #ccc;
+  border-radius: 8px;
+  padding: 10px;
+  text-align: center;
+}
+.card h3{
+color: #007bff;
+text-decoration: none;
+
+}
+
+.card img {
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  margin-bottom: 10px;
+}
+
+@media screen and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  }
+
+  .card img {
+    width: 80px;
+    height: 80px;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .card img {
+    width: 60px;
+    height: 60px;
+  }
+}
+
+
+/* Grid container */
+.grid-container {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr 1fr 1fr; /* Define grid columns */
+  gap: 10px; /* Add gap between grid items */
+}
+
+/* Grid heading */
+.grid-heading {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr; /* Match grid columns with content */
+  background-color: #f0f0f0; /* Set background color */
+  padding: 10px; /* Add padding */
+  font-weight: bold; /* Make text bold */
+}
+
+/* Grid row */
+.grid-row {
+  display: grid;
+  grid-template-columns: auto 1fr 1fr 1fr 1fr; /* Match grid columns with content */
+  padding: 10px; /* Add padding */
+}
+
+/* Grid cell (image) */
+.grid-row img {
+  width: 50px; /* Set image width */
+  height: auto; /* Set image height */
+}
+
+/* Grid cell (name, equity) */
+.grid-row div {
+  display: flex; /* Use flexbox for alignment */
+  align-items: center; /* Align items vertically */
+}
+
+/* Responsive layout */
+@media screen and (max-width: 768px) {
+  .grid-container {
+    grid-template-columns: auto 1fr 1fr; /* Adjust grid columns for smaller screens */
+  }
+
+  .grid-heading, .grid-row {
+    grid-template-columns: auto 1fr 1fr; /* Adjust grid columns for smaller screens */
+  }
+  
+  .grid-row img {
+    width: 30px; /* Adjust image size for smaller screens */
+  }
+}
+
+
+/* Add modern styling */
+/* Add modern styling */
+.table th, .table td {
+  border: 1px solid #dee2e6; /* Add borders */
+  padding: 12px;
+  text-align: center;
+}
+
+.table th {
+  background-color: #f8f9fa;
+  font-weight: 600;
+}
+
+.table-striped tbody tr:nth-of-type(odd) {
+  background-color: #f8f9fa;
+}
+
+/* Add responsiveness */
+.table-responsive {
+  width: 70%;
+  overflow-x: auto;
+}
+
+/* Center the image */
+.table td img {
+  display: block;
+  margin: 0 auto;
+  max-width: 100%;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.loading{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 5rem;
+}
+.SingleCompany-grid-container {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  gap: 20px;
+  padding: 20px;
+}
+
+.amc-card {
+  background-color: #fff;
+  width: 80%;
+  /* max-width: 400px; */
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  transition: transform 0.3s ease;
+}
+
+
+.amc-card:hover {
+  transform: translateY(-5px);
+}
+
+.amc-card img {
+  width: 10%; /* Ensure the image fills its container */
+  max-height: 120px; /* Limit maximum height */
+  border-radius: 8px; /* Apply border radius to images */
+}
+.amc-card img:last-child {
+  width: 100%; /* Ensure the image fills its container */
+  max-height: 200px; /* Limit maximum height */
+  border-radius: 8px; /* Apply border radius to images */
+}
+
+.amc-details {
+  margin-top: 15px;
+}
+
+.amc-name {
+  font-size: 18px;
+  font-weight: bold;
+  margin-bottom: 10px;
+}
+
+.features-list {
+  display: flex;
+  margin: 0;
+  padding: 0;
+}
+
+
+.features-list li {
+  list-style-type: none;
+  font-size: 1.5rem;
+  margin-right: 20px;
+}
+
+.features-return {
+  list-style-type: none;
+}
+.features-return li {
+ font-size: 1.1rem;
+}
+
+.features-return span {
+  font-weight: 700;
+  font-size: 0.7rem;
+}
+
+.filter-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px; /* Add some space between buttons */
+}
+
+.filter-buttons button {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 10px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.filter-buttons button:hover {
+  background-color: #0056b3;
+}
+.feature-1 {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+  margin-bottom: 20px;
+}
+
+.feature-1 div {
+  text-align: center;
+
+}
+.feature-1 div:not(:last-child) {
+ margin-right: 5rem;
+  
+}
+.feature-1 h3 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.feature-1 span {
+  font-weight: bold;
+  color: #555;
+}
+
+/* Styling for features-2 */
+.features-2 {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-around;
+  background-color: #f5f5f5;
+  border-radius: 8px;
+  padding: 20px;
+}
+
+.features-2 div {
+  flex: 1;
+  text-align: center;
+}
+.features-2 div:not(:last-child) {
+ margin-right: 5rem;
+  
+}
+.features-2 h3 {
+  font-size: 16px;
+  color: #333;
+  margin-bottom: 5px;
+}
+
+.features-2 span {
+  font-weight: bold;
+  color: #555;
 }
