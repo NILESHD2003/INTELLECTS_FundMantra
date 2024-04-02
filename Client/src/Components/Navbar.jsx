@@ -1,12 +1,17 @@
 // eslint-disable-next-line no-unused-vars
 import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
-
-const Navbar = ({ loggedIn, handleLogout }) => {
+import { logoutUser  } from '../Slice/userSlice';
+import { useDispatch } from 'react-redux';
+const Navbar = ({ loggedIn }) => {
   const [menuOpen, setMenuOpen] = useState(true);
-
+const dispatch=useDispatch();
   const toggleMenu = () => {
     setMenuOpen(!menuOpen);
+  };
+  const handleLogout = () => {
+    // Dispatch logoutUser thunk action
+    dispatch(logoutUser());
   };
 
   return (
@@ -25,7 +30,7 @@ const Navbar = ({ loggedIn, handleLogout }) => {
         {loggedIn && <li><Link to="/prediction">Prediction</Link></li>}
         {loggedIn && <li><Link to="/filter">Filter</Link></li>}
         {!loggedIn && <li><Link to="/">Login</Link></li>}
-        {loggedIn && <li><button className='menu-btn' onClick={handleLogout}>Logout</button></li>}
+        {loggedIn && <li><button className='button menu-btn' onClick={handleLogout}>Logout</button></li>}
       </ul>
     </nav>
   );

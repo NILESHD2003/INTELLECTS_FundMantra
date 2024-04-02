@@ -1,14 +1,30 @@
 import React, { useState } from 'react';
+import { useNavigate } from 'react-router-dom';
+import { useDispatch } from 'react-redux';
+
+import { sentOTP } from '../Slice/userSlice';
+
 
 function SignUp() {
-  const [formData, setFormData] = useState({
+const dispatch=useDispatch()
+  const navigate = useNavigate();
+
+
+  // const handleSubmit = () => {
+  //   localStorage.setItem('signupData', JSON.stringify(formData));
+  //   history.push('/otp');
+  // };
+
+
+ const [formData, setFormData] = useState({
     name: '',
     email: '',
     password: '',
     confirmPassword: '',
-    gender: '',
+    phoneNo: '',
     goal: '',
   });
+  // const history = useHistory();
 
   const handleChange = (e) => {
     const { name, value } = e.target;
@@ -16,10 +32,15 @@ function SignUp() {
   };
 
   const handleSubmit = (e) => {
+
     e.preventDefault();
-    console.log(formData);
-    // You can add your sign-up logic here
+
+    localStorage.setItem('signupData', JSON.stringify(formData));
+    dispatch(sentOTP(formData.email));
+    navigate('/otp');
+   
   };
+
 
   return (
     <div className="sign-up-container">
@@ -33,6 +54,13 @@ function SignUp() {
           <label htmlFor="email">Email:</label>
           <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
         </div>
+
+ <div className="form-group">
+          <label htmlFor="phoneNo">phoneNo:</label>
+         <input type="text" id="phoneNo" name="phoneNo" value={formData.phoneNo} onChange={handleChange}/>
+        </div>
+
+
         <div className="form-group">
           <label htmlFor="password">Password:</label>
           <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
@@ -41,15 +69,7 @@ function SignUp() {
           <label htmlFor="confirmPassword">Confirm Password:</label>
           <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />
         </div>
-        <div className="form-group">
-          <label htmlFor="gender">Gender:</label>
-          <select id="gender" name="gender" value={formData.gender} onChange={handleChange}>
-            <option value="">Select Gender</option>
-            <option value="male">Male</option>
-            <option value="female">Female</option>
-            <option value="other">Other</option>
-          </select>
-        </div>
+       
         <div className="form-group">
           <label htmlFor="goal">Goal:</label>
           <select id="goal" name="goal" value={formData.goal} onChange={handleChange}>
@@ -59,7 +79,7 @@ function SignUp() {
             <option value="retirement">Retirement</option>
           </select>
         </div>
-        <button type="submit">Sign Up</button>
+        <button className='button' type="submit">Sign Up</button>
       </form>
     </div>
   );
