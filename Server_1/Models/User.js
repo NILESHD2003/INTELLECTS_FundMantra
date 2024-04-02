@@ -11,6 +11,11 @@ const userSchema = new mon.Schema({
         required: true,
         trim: true
     },
+    phoneNumber: {
+        type: Number,
+        required: true,
+        trim: true
+    },
     password: {
         type: String,
         required: true,
@@ -19,6 +24,20 @@ const userSchema = new mon.Schema({
     token: {
         type: String,
         trim: true
+    },
+    age: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    goal: {
+        type: String,
+        required: true,
+        trim: true
+    },
+    dob: {
+        type: Date,
+        required: true
     }
 });
 

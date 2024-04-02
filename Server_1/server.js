@@ -25,9 +25,11 @@ cloudinaryConnect();
 
 // importing routes
 const userRoutes = require("./Routes/User");
+const collectionRoutes = require("./Routes/Collection");
 
 // defining routes
 app.use("/api/v1/auth", userRoutes);
+app.use("/api/v1/collections", collectionRoutes);
 
 const PORT = process.env.PORT || 8000;
 
