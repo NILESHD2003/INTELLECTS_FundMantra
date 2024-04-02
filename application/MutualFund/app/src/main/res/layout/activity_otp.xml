@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.appcompat.widget.LinearLayoutCompat xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/main"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".OTP">
+
+
+
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent">
+
+            <TextView
+                android:id="@+id/otp"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:layout_alignParentBottom="true"
+                android:layout_marginBottom="0dp"
+                android:background="@drawable/bg_image2"
+                android:paddingStart="3dp"
+                android:paddingTop="200dp"
+                android:text="@string/enter_otp"
+                android:textAlignment="center"
+                android:textSize="40sp"
+                tools:ignore="RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/no1"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_alignParentStart="true"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="25dp"
+                android:layout_marginTop="10dp"
+                android:background="@drawable/custom_otp"
+                android:gravity="center"
+                android:inputType="textVisiblePassword"
+                android:maxLength="1"
+                android:paddingLeft="2dp"
+                android:paddingBottom="100dp"
+                android:textSize="26sp"
+                tools:ignore="Autofill,LabelFor,RtlHardcoded,RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/no2"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="45dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/no1"
+                android:background="@drawable/custom_otp"
+                android:gravity="center"
+                android:inputType="textVisiblePassword"
+                android:maxLength="1"
+                android:paddingLeft="1dp"
+                android:paddingBottom="4dp"
+                android:textSize="26sp"
+                tools:ignore="Autofill,LabelFor,RtlHardcoded,RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/no3"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="46dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/no2"
+                android:gravity="center"
+                android:background="@drawable/custom_otp"
+                android:inputType="textVisiblePassword"
+                android:maxLength="1"
+                android:paddingLeft="1dp"
+                android:paddingBottom="4dp"
+                android:textSize="26sp"
+                tools:ignore="Autofill,LabelFor,RtlHardcoded,RtlSymmetry" />
+
+            <EditText
+                android:id="@+id/no4"
+                android:layout_width="60dp"
+                android:layout_height="60dp"
+                android:layout_centerVertical="true"
+                android:layout_marginStart="40dp"
+                android:layout_marginTop="10dp"
+                android:layout_toEndOf="@id/no3"
+                android:gravity="center"
+                android:background="@drawable/custom_otp"
+                android:inputType="textVisiblePassword"
+                android:maxLength="1"
+                android:paddingLeft="1dp"
+                android:paddingRight="2dp"
+                android:paddingBottom="4dp"
+                android:textSize="26sp"
+                tools:ignore="Autofill,LabelFor,RtlHardcoded" />
+
+            <Button
+                android:layout_width="311dp"
+                android:layout_height="67dp"
+                android:layout_alignParentEnd="true"
+                android:layout_alignParentBottom="true"
+                android:layout_marginEnd="43dp"
+                android:layout_marginBottom="249dp"
+                android:backgroundTint="@color/blue"
+                android:text="@string/verify"
+                android:textSize="20dp"
+
+                tools:ignore="SpUsage" />
+
+        </RelativeLayout>
+
+
+</androidx.appcompat.widget.LinearLayoutCompat>
