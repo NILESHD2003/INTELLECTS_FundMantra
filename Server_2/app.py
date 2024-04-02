@@ -1,12 +1,13 @@
-import pickle
+import pandas as pd
 from flask import Flask
 import numpy as np
 from flask import request,jsonify
-app=Flask(__name__)
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import accuracy_score
 
-#Loading Model
-with open('mutual_funds.pkl','rb') as f:
-    model=pickle.load(f)
+app=Flask(__name__)
     
 def process_input(input_data):
     # Load data from JSON
@@ -55,9 +56,34 @@ def home():
 @app.route('/predict',methods=['POST'])
 def predict():
     temp=request.get_json()
-    data = process_input(temp)
-    processed_input = np.array(data).reshape(1, -1)
-    prediction=model.predict(processed_input)
+    # Load the dataset
+    data = pd.read_csv("MF_India_AI.csv")
+
+    # Keep only the required features
+    data = data[['amc_name', 'min_sip', 'category', 'scheme_name']]
+
+    # Scale numerical variables
+    scaler = StandardScaler()
+    data['min_sip'] = scaler.fit_transform(data[['min_sip']])
+
+    # Perform one-hot encoding for categorical variables
+    data = pd.get_dummies(data, columns=['amc_name', 'category'])
+
+    # Split the data into training and testing sets
+    X = data.drop(columns=['scheme_name'])
+    y = data['scheme_name']
+    X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+    # Initialize the model
+    rf_model = RandomForestClassifier(n_estimators=30, random_state=10)
+
+    # Train the model
+    rf_model.fit(X_train, y_train)
+    
+    #Processing the data
+    data1 = process_input(temp)
+    processed_input = np.array(data1).reshape(1, -1)
+    prediction=rf_model.predict(processed_input)
     return jsonify({'prediction':prediction.tolist()})
 
 
