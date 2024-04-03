@@ -42,6 +42,7 @@ function OtpPage() {
             <input
               key={index}
               type="text"
+              id="otp-input"
               maxLength="1"
               value={value}
               onChange={(e) => handleChange(index, e.target.value)}

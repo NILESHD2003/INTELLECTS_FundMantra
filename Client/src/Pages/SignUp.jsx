@@ -52,21 +52,21 @@ const dispatch=useDispatch()
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
         
-        <div className="form-group ">
+        <div className="form-group  signup-form">
           <label htmlFor="name">Name:</label>
           <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
         </div>
 
-         <div className="form-group">
+         <div className="form-group signup-form">
           <label htmlFor="age">Age:</label>
           <input type="text" id="age" name="age" value={formData.age} onChange={handleChange} />
         </div>
-        <div className="form-group">
+        <div className="form-group signup-form">
           <label htmlFor="email">Email:</label>
           <input type="email" id="email" name="email" value={formData.email} onChange={handleChange} />
         </div>
 
- <div className="form-group">
+ <div className="form-group signup-form">
           <label htmlFor="phoneNumber">phoneNo:</label>
          <input type="text" id="phoneNumber" name="phoneNumber" value={formData.phoneNumber} onChange={handleChange}/>
         </div>
