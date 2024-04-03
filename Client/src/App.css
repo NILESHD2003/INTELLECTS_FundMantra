@@ -560,6 +560,9 @@ text-decoration: none;
 
 /* Add responsiveness */
 .table-responsive {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   width: 70%;
   overflow-x: auto;
 }
@@ -887,4 +890,12 @@ input[type="submit"]:hover {
     font-size: 2rem;
     margin-bottom: 20px;
   }
+}
+
+#otp-input{
+  width: 10%;
+}
+
+.signup-form{
+      width: 95%;
 }
