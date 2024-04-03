@@ -33,8 +33,15 @@ const dispatch=useDispatch()
     e.preventDefault();
 
     localStorage.setItem('signupData', JSON.stringify(formData));
-    dispatch(sentOTP(formData.email));
-    navigate('/otp');
+    
+  dispatch(sentOTP(formData.email))
+    .then(() => {
+      navigate('/otp');
+    })
+    .catch((error) => {
+      // Handle any errors here
+      console.error('Error:', error);
+    });
    
   };
 
@@ -44,9 +51,15 @@ const dispatch=useDispatch()
     <div className="sign-up-container">
       <h2>Sign Up</h2>
       <form onSubmit={handleSubmit}>
-        <div className="form-group">
+        
+        <div className="form-group ">
           <label htmlFor="name">Name:</label>
           <input type="text" id="name" name="name" value={formData.name} onChange={handleChange} />
+        </div>
+
+         <div className="form-group">
+          <label htmlFor="age">Age:</label>
+          <input type="text" id="age" name="age" value={formData.age} onChange={handleChange} />
         </div>
         <div className="form-group">
           <label htmlFor="email">Email:</label>
@@ -63,10 +76,7 @@ const dispatch=useDispatch()
           <label htmlFor="password">Password:</label>
           <input type="password" id="password" name="password" value={formData.password} onChange={handleChange} />
         </div>
-        <div className="form-group">
-          <label htmlFor="age">Age:</label>
-          <input type="text" id="age" name="age" value={formData.age} onChange={handleChange} />
-        </div>
+       
         <div className="form-group">
           <label htmlFor="confirmPassword">Confirm Password:</label>
           <input type="password" id="confirmPassword" name="confirmPassword" value={formData.confirmPassword} onChange={handleChange} />

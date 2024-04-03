@@ -1,5 +1,5 @@
 
-import { useState } from 'react';
+import { Profiler, useState } from 'react';
 import './App.css';
 import Navbar from './Components/Navbar';
 import { BrowserRouter as Router, Route, Routes } from 'react-router-dom';
@@ -11,10 +11,11 @@ import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import OtpPage from './Pages/OtpPage';
 import { login, logout,selectIsLoggedIn } from './Slice/userSlice';
-
+import Profile from './Pages/Profile';
 import { useDispatch,useSelector } from 'react-redux';
 import SingleCollection from './Pages/SingleCollection';
 import SingleCompany from './Pages/SingleCompany';
+import Prediction from './Pages/Prediction';
 
 function App() {
 
@@ -45,9 +46,21 @@ const dispatch = useDispatch();
               path="/:id"
               element={<SingleCollection/>}
             />
+             <Route
+              path="/prediction"
+              element={<Prediction/>}
+            />
+            <Route
+              path="/profile"
+              element={<Profile/>}
+            />
             <Route
               path="/singleCompany/:data"
               element={<SingleCompany />}
+            />
+            <Route
+              path="*"
+              element={<Home />}
             />
            
           </>

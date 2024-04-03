@@ -47,7 +47,7 @@ const SingleCompany = () => {
             <h1>{data.scheme_name}</h1>
           </div>
           <ul className="features-list">
-            <li><CiStar /> {data.rating}</li>
+            <li>{data.rating} <CiStar /> </li>
             <li>{data.category}</li>
           </ul>
           <ul className="features-return">

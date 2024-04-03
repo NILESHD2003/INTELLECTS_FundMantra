@@ -5,13 +5,13 @@ import { Link } from 'react-router-dom';
 const Home = () => {
 
     const data = [
-  { id: 1,link:'/sip100', name: 'Hign Return', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060792/Mutual%20Funds%20Logo/Assets/high_returns_2_ounjoq.svg' },
-  { id: 2,link:'/sip1000', name: 'SIP with 1000', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060786/Mutual%20Funds%20Logo/Assets/sip_with_500_ctefld.svg' },
-  { id: 3,link:'/sip100', name: 'Tax SAvingob', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060785/Mutual%20Funds%20Logo/Assets/tax_saving_ix53gi.svg' },
-  { id: 4,link:'/sip100', name: 'Large Cap', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060791/Mutual%20Funds%20Logo/Assets/large_cap_pzcqw1.svg' },
-  { id: 5,link:'/sip100', name: 'Mid Cap', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060789/Mutual%20Funds%20Logo/Assets/mid_cap_tfkkl5.svg' },
-  { id: 6,link:'/sip100', name: 'Small Cap', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060785/Mutual%20Funds%20Logo/Assets/small_cap_ee3so1.svg' },
-  { id: 7,link:'/sip100', name: 'SIP with 100', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060786/Mutual%20Funds%20Logo/Assets/sip_with_500_ctefld.svg' },
+      { id: 2,link:'/sip1000', name: 'SIP with 1000', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060786/Mutual%20Funds%20Logo/Assets/sip_with_500_ctefld.svg' },
+      { id: 4,link:'/largecap', name: 'Large Cap', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060791/Mutual%20Funds%20Logo/Assets/large_cap_pzcqw1.svg' },
+      { id: 5,link:'/midcap', name: 'Mid Cap', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060789/Mutual%20Funds%20Logo/Assets/mid_cap_tfkkl5.svg' },
+      { id: 6,link:'/smallcap', name: 'Small Cap', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060785/Mutual%20Funds%20Logo/Assets/small_cap_ee3so1.svg' },
+      { id: 7,link:'/sip100', name: 'SIP with 100', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060786/Mutual%20Funds%20Logo/Assets/sip_with_500_ctefld.svg' },
+      // { id: 3,link:'/sip100', name: 'Tax Saving', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060785/Mutual%20Funds%20Logo/Assets/tax_saving_ix53gi.svg' },
+      // { id: 1,link:'/sip100', name: 'Hign Return', image: 'https://res.cloudinary.com/df0bb8ly2/image/upload/v1712060792/Mutual%20Funds%20Logo/Assets/high_returns_2_ounjoq.svg' },
 ];
   return (
 <>
@@ -23,8 +23,8 @@ const Home = () => {
       <div className="home-info">
         <h1>Welcome to Fund Mantra</h1>
         <p>We Help yout analyze and recommend mutual funds for  your investment</p>
-      
-      <button className='home-btn'>Get  Started</button>
+      <Link to="/prediction">
+      <button className='home-btn' >Get  Started</button></Link>
       </div>
       
     </div>

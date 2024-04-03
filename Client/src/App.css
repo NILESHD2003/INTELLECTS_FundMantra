@@ -15,7 +15,9 @@ body{
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #007bff;
+   border-bottom: 1px solid #ccc;
+  /* background-color: #007bff; */
+   box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
   height: 60px;
   padding: 0 20px;
 }
@@ -42,15 +44,16 @@ body{
 }
 
 .menu li a {
-  color: white;
+  color: black;
+  font-weight: 700;
   text-decoration: none;
   font-size: 1.1rem;
   transition: all 0.3s ease;
 }
 
 .menu li a:hover {
-  text-decoration: underline;
-  color: #f0f0f0;
+  /* text-decoration: underline; */
+  /* color: #f0f0f0; */
 }
 
 .menu-btn{
@@ -98,11 +101,20 @@ font-size: 1rem;
   opacity: 0;
  }
 }
+.opacity{
+  opacity: 0;
+  img{
+    width: 0;
+  }
+}
 
 
 
 
-
+.logo-img img{
+  height:200px;
+  width: auto;
+}
 .sign-up-container {
   width: 100%;
   max-width: 400px;
@@ -112,8 +124,19 @@ font-size: 1rem;
   border-radius: 5px;
   background-color: #fff;
   box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-}
+  animation: fadeIn 0.5s ease-in-out;
 
+}
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Optionally, you can add a slight vertical translation */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
 .sign-up-container h2 {
   text-align: center;
   margin-bottom: 20px;
@@ -172,12 +195,35 @@ select {
   width: 100%;
   height: auto;
   border-radius: 20px;
+   animation: slideInImage 1s ease forwards;
 }
 
 .home-info {
   margin: auto;
   position: relative;
   text-align: center;
+    animation: fadeInInfo 1s ease forwards;
+}
+
+@keyframes slideInImage {
+  0% {
+    transform: translateY(50px); /* Start slightly below its position */
+    opacity: 0; /* Start with opacity 0 */
+  }
+  100% {
+    transform: translateY(0); /* Slide up to its position */
+    opacity: 1; /* Fade in */
+  }
+}
+
+/* Define keyframes for fading in the info */
+@keyframes fadeInInfo {
+  0% {
+    opacity: 0; /* Start with opacity 0 */
+  }
+  100% {
+    opacity: 1; /* Fade in */
+  }
 }
 
 .home-info-inner {
@@ -205,6 +251,11 @@ select {
   border-radius: 5px;
   cursor: pointer;
 }
+.home-btn a{
+  text-decoration: none;
+  color: white;
+}
+
 
 /* Responsive styles for medium and small screens */
 @media screen and (max-width: 992px) {
@@ -239,10 +290,26 @@ select {
   height: 100vh;
   display: flex;
   flex-direction: column;
-  align-items: center; /* Center the form vertically */
-  justify-content: center; /* Center the form horizontally */
+  align-items: center;
+  justify-content: center;
+  animation: fadeIn 0.5s ease-in-out; /* Apply the fade-in animation */
 }
 
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translateY(-20px); /* Optionally, you can add a slight vertical translation */
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Adjust the form styling */
+.login .form {
+  margin-top: -60px;
+}
 .form  a{
   text-decoration: none;
 display: flex;
@@ -363,12 +430,33 @@ align-items: center;
   grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
   gap: 20px;
 }
+.grid-container a{
+  text-decoration: none;
+  color: #007bff;
+}
+
+.btn-tableData{
+
+  transition: all .2s;
+}
+.btn-tableData a{
+  text-decoration: none;
+  color: white;
+ 
+}
+.btn-tableData:hover{
+ background-color: #0056b3;
+}
 
 .card {
   border: 1px solid #ccc;
   border-radius: 8px;
   padding: 10px;
   text-align: center;
+  transition: transform 0.3s ease;
+}
+.card:hover {
+transform: translateY(-5px);
 }
 .card h3{
 color: #007bff;
@@ -508,7 +596,6 @@ text-decoration: none;
 .amc-card {
   background-color: #fff;
   width: 80%;
-  /* max-width: 400px; */
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   padding: 20px;
@@ -521,14 +608,14 @@ text-decoration: none;
 }
 
 .amc-card img {
-  width: 10%; /* Ensure the image fills its container */
-  max-height: 120px; /* Limit maximum height */
-  border-radius: 8px; /* Apply border radius to images */
+  width: 10%;
+  max-height: 120px;
+  border-radius: 8px; 
 }
 .amc-card img:last-child {
-  width: 100%; /* Ensure the image fills its container */
-  max-height: 200px; /* Limit maximum height */
-  border-radius: 8px; /* Apply border radius to images */
+  width: 100%; 
+  max-height: 200px;
+  border-radius: 8px; 
 }
 
 .amc-details {
@@ -541,7 +628,7 @@ text-decoration: none;
   margin-bottom: 10px;
 }
 
-.features-list {
+.features-list{
   display: flex;
   margin: 0;
   padding: 0;
@@ -550,12 +637,15 @@ text-decoration: none;
 
 .features-list li {
   list-style-type: none;
+  display: flex;
+  align-items: center;
   font-size: 1.5rem;
   margin-right: 20px;
 }
 
 .features-return {
   list-style-type: none;
+  margin-top: .5rem;
 }
 .features-return li {
  font-size: 1.1rem;
@@ -642,4 +732,159 @@ text-decoration: none;
 .features-2 span {
   font-weight: bold;
   color: #555;
+}
+
+/* body{
+    overflow: hidden;
+   } */
+  
+  .Prediction {
+  max-width: 400px; /* Set a maximum width for the form */
+  margin: 0 auto; /* Center the form horizontally */
+  padding: 20px; /* Add some padding around the form */
+}
+
+.form-group {
+  margin-bottom: 20px; /* Add space between form groups */
+}
+
+label {
+  display: block; /* Display labels as block elements */
+  margin-bottom: 5px; /* Add space below labels */
+  font-weight: bold; /* Make labels bold */
+}
+
+input[type="text"],
+input[type="number"],
+select {
+  width: 100%; /* Make inputs and select elements fill the width */
+  padding: 10px; /* Add padding to inputs */
+  border: 1px solid #ccc; /* Add a border to inputs */
+  border-radius: 5px; /* Add border radius to inputs */
+}
+
+select {
+  appearance: none; /* Remove default select arrow */
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="%23333"><path d="M7 10l5 5 5-5H7z"/></svg>'); /* Add custom select arrow */
+  background-repeat: no-repeat; /* Prevent the arrow from repeating */
+  background-position: right 10px center; /* Position the arrow */
+}
+
+input[type="submit"] {
+  background-color: #007bff; /* Set button background color */
+  color: #fff; /* Set button text color */
+  border: none; /* Remove button border */
+  border-radius: 5px; /* Add border radius to button */
+  padding: 10px 20px; /* Add padding to button */
+  cursor: pointer; /* Add pointer cursor on hover */
+  transition: background-color 0.3s; /* Add transition effect on hover */
+}
+
+input[type="submit"]:hover {
+  background-color: #0056b3; /* Change button background color on hover */
+}
+
+.profile{
+  width: 100vw;
+}
+.profile-container {
+  display: flex;
+  width: fit-content;
+  margin: 100px auto;
+  align-items: center;
+  justify-content: center;
+  gap: 30px;
+  padding: 70px;
+   box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.3);
+  font-weight: 600;
+}
+
+
+.profile-image {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+}
+
+.profile-img {
+  width: 150px;
+  height: 150px;
+  border-radius: 50%;
+}
+
+.profile-h3 {
+  margin-top: 10px;
+  font-size: 24px;
+}
+
+.profile-form-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 10px;
+}
+
+.profile-grid-item {
+  display: flex;
+  flex-direction: column;
+}
+
+.profile-grid-item label {
+  font-weight: bold;
+}
+
+.profile-grid-item input,
+.profile-grid-item select {
+  width: 100%;
+  padding: 8px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.profile-grid-item button {
+  width: 100%;
+  padding: 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.profile-grid-item button:hover {
+  background-color: #0056b3;
+}
+
+.profile-info {
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
+}
+
+.profile-info > div {
+  margin-bottom: 10px;
+}
+
+.edit {
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 20px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.edit:hover {
+  background-color: #0056b3;
+}
+
+.profile-data{
+  margin: 100px auto;
+  text-align: center;
+  h3{
+    font-size: 2rem;
+    margin-bottom: 20px;
+  }
 }

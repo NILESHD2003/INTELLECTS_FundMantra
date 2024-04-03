@@ -12,6 +12,7 @@ const [loading, setLoading] = useState(true);
   useEffect(() => {
     async function getData() {
       try {
+        console.log("Fetching");
         const response = await axios.get(`https://intellects-fundmantra.onrender.com/api/v1/collections/${id}`);
         setData(response.data.data);
       } catch (error) {
