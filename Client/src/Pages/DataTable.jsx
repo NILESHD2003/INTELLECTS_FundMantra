@@ -2,7 +2,6 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 const DataTable = ({ data }) => {
-    console.log(data);
   return (
     <div className="table-responsive">
       <table className="table table-striped">
@@ -25,10 +24,15 @@ const DataTable = ({ data }) => {
               {/* <td>{index}</td> */}
               <td>{row.scheme_name}</td>
               <td>{row.sub_category}</td>
-              <td>{row.returns_1yr}</td>
+              <td>{row.returns_1yr}</td>   
               <td>{row.returns_3yr}</td>
               <td>{row.returns_5yr}</td>
-              <td><Link  to={`/singleCompany/${row._id}`}    >Details</Link></td>
+              <td>
+                <button className='button btn-tableData'>
+
+                <Link  to={`/singleCompany/${row._id}`}>Details</Link>
+                </button>
+                </td>
             </tr>
           ))}
         </tbody>

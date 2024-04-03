@@ -34,7 +34,7 @@ function OtpPage() {
   };
 
   return (
-    <div className="otp">
+   <div className="otp">
       <div className="otp-container">
         <h2>Enter OTP</h2>
         <form onSubmit={handleSubmit} className="otp-inputs">
@@ -48,7 +48,7 @@ function OtpPage() {
               onKeyDown={(e) => handleKeyDown(index, e)}
             />
           ))}
-        <button type='submit' className='button'>Submit</button>
+          <button type='submit' className='button'>Submit</button> 
         </form>
       </div>
     </div>

@@ -18,6 +18,11 @@ const Login = () => {
 
   return (
     <div className='login'>
+      <div className="logo-img">
+
+      <img src="https://res.cloudinary.com/df0bb8ly2/image/upload/v1712046689/Mutual%20Funds%20Logo/Assets/1918d0276461ed980d6ec0cde30c771d-removebg-preview_aqi4jp.png" alt="" />
+      </div>
+     
       <div className="form">
         <h1>Login</h1>
         <div className="form-group">

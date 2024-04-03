@@ -1,11 +1,14 @@
 import { createSlice, createAsyncThunk } from '@reduxjs/toolkit';
 import axios from 'axios';
+import { useNavigate } from 'react-router-dom';
 import { toast } from "react-toastify";
+
+
 
 const initialState = {
   user: null,
-//   isLoggedIn: false,
-isLoggedIn: localStorage.getItem('isLoggedIn') === 'true', // Read from localStorage
+  //   isLoggedIn: false,
+  isLoggedIn: localStorage.getItem('isLoggedIn') === 'true', // Read from localStorage
   
   loading: false,
   error: null,
@@ -18,7 +21,8 @@ export const loginUserAsync = createAsyncThunk(
     try {
 
       const response = await axios.post("https://intellects-fundmantra.onrender.com/api/v1/auth/login", userData);
-     localStorage.setItem('isLoggedIn', 'true'); // Store in localStorage
+      localStorage.setItem('userInfo',JSON.stringify(response.data.user))
+      localStorage.setItem('isLoggedIn', 'true'); // Store in localStorage
    
       return response.data; // Assuming the API response contains user data
     
@@ -38,15 +42,21 @@ export const verifyOTP = createAsyncThunk(
   async ({ otpValues, signupData }, { rejectWithValue }) => {
     try {
         const otp = otpValues.join('')
+        const dob=signupData.age;
+         const dobDate = new Date(dob);
+        const currentDate = new Date();
+        signupData.age = (currentDate.getFullYear() - dobDate.getFullYear()).toString();
+        
         const requestData = {
      otp,
+     dob,
      ...signupData
    };
-        console.log(requestData);
-      const response = await axios.post("https://intellects-fundmantra.onrender.com/api/v1/auth/send-otp/signup", {
-      requestData });
-      return response.data; // Assuming the API response contains user data
-    } catch (error) {
+   
+   const response = await axios.post("https://intellects-fundmantra.onrender.com/api/v1/auth/signup", 
+   requestData );
+   return response.data; // Assuming the API response contains user data
+  } catch (error) {
       return rejectWithValue(error.response.data); // Return error message from API response
     }
   }
@@ -60,12 +70,13 @@ export const sentOTP = createAsyncThunk(
       const response = await axios.post("https://intellects-fundmantra.onrender.com/api/v1/auth/send-otp", {email:userData});
       return response.data; // Assuming the API response contains user data
     } catch (error) {
-      return rejectWithValue(error.response.data); // Return error message from API response
+      throw new Error(error.response.data)
+      // return rejectWithValue(error.response.data); 
     }
   }
-
-
-);
+  
+  
+  );
 
 
 export const logoutUser = createAsyncThunk(
@@ -77,11 +88,11 @@ export const logoutUser = createAsyncThunk(
       console.error('Logout failed:', error);
     }
   }
-);
-
-const userSlice = createSlice({
-  name: 'user',
-  initialState,
+  );
+  
+  const userSlice = createSlice({
+    name: 'user',
+    initialState,
   reducers: {
     login: (state, action) => {
       state.user = action.payload;
