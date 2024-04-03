@@ -85,7 +85,7 @@ def predict():
     data1 = process_input(temp)
     processed_input = np.array(data1).reshape(1, -1)
     prediction=rf_model.predict(processed_input)
-    return jsonify({'prediction':prediction.tolist()})
+    return jsonify({'prediction':prediction[0]})
 
 
 if __name__=='__main__':
