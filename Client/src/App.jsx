@@ -10,6 +10,8 @@ import Home from './Pages/Home';
 import Login from './Pages/Login';
 import SignUp from './Pages/SignUp';
 import OtpPage from './Pages/OtpPage';
+import Prediction from './Pages/Prediction'; 
+import Profile from './Pages/Profile'; 
 import { login, logout,selectIsLoggedIn } from './Slice/userSlice';
 
 import { useDispatch,useSelector } from 'react-redux';
@@ -40,6 +42,14 @@ const dispatch = useDispatch();
             <Route
               path="/"
               element={<Home/>}
+            />
+            <Route
+              path="/prediction"
+              element={<Prediction/>}
+            />
+            <Route
+              path="/profile"
+              element={<Profile/>}
             />
             <Route
               path="/:id"
