@@ -5,8 +5,10 @@ from flask import request,jsonify
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 from sklearn.ensemble import RandomForestClassifier
+from flask_cors import CORS
 
 app=Flask(__name__)
+CORS(app)
     
 def process_input(input_data):
     # Load data from JSON
