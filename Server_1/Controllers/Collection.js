@@ -102,18 +102,20 @@ exports.smallCap = async (req, res) => {
 
 exports.detailed_amc = async (req, res) => {
     try{
-        const {id} = req.body;
-        const data = await MutualFundsData.findOne({_id: id});
+        const {id} = req.params;
+        console.log(id)
+        // const data = await MutualFundsData.findOne({_id: id});
+        const data = await MutualFundsData.findOne({ _id: id });
         console.log(data);
 
         if(!data){
-            res.status(404).json({
+           return res.status(404).json({
                 success: false,
                 message: "Unable to find Id"
             })
         }
 
-        res.status(200).json({
+       return res.status(200).json({
             success: true,
             data: data
         })
